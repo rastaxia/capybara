@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script defer src="./js/script.js"></script>
+    <title>Home</title>
+  </head>
+  <body>
+    <main>
+      <div class="home">
+        <button class="launchBtn">Are you ready?</button>
+        <div class="menu">
+          <h1>Welcome to</h1>
+          <button class="start">Start</button>
+          <button class="options">Options</button>
+          <button class="quit">Quit</button>
+        </div>
+        <div class="optionsScreen">
+          <h1>Options</h1>
+          <div>
+            <h2>Music</h2>
+            0<input type="range" id="volume" />100
+            <br />
+            current volume:
+            <span id="volumeValue">50%</span>
+          </div>
+          <div>
+            <h2>Sound</h2>
+          </div>
+          <div class="voiceOption">
+            <h2>Voice Acting</h2>
+            off
+            <label class="switch">
+              <input id="checker" type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+            on
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
