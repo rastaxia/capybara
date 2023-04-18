@@ -31,6 +31,12 @@ button {
   margin: 10px;
 }
 
+h1 {
+  font-size: 72px;
+  margin: 0;
+  padding: 0;
+}
+
 button:hover {
   background-color: #ffffff;
   color: #222222;
@@ -42,6 +48,8 @@ button:hover {
 
 .optionsScreen {
   display: none;
+  padding: 25px;
+  border: 1px white solid;
 }
 
 .optionsScreen input {
@@ -51,6 +59,29 @@ button:hover {
   cursor: pointer;
   margin: 10px;
 }
+
+.musicOption {
+  font-size: 22px;
+}
+
+.musicOption h2 {
+  margin: 10px 0;
+}
+
+.voiceOption {
+  font-size: 22px;
+}
+
+.optionMenu {
+  margin-top: 15px;
+}
+
+.optionBtns {
+  font-size: 22px;
+  margin: 0 10px;
+}
+
+
 
 /* voice acting switch */
 .switch {
@@ -90,11 +121,11 @@ button:hover {
   transition: 0.4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: green;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(36px);
   -ms-transform: translateX(36px);
   transform: translateX(36px);
