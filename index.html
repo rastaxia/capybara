@@ -10,45 +10,106 @@
   </head>
   <body>
     <main>
-      <div class="home">
-        <button class="launchBtn">Are you ready?</button>
-        <!-- welcome screen -->
-        <div class="menu">
-          <h1>Welcome to</h1>
-          <h2>Capyquest</h2>
-          <button class="start">Start</button>
-          <button class="options">Options</button>
-          <button class="quit">Quit</button>
+      <button class="launchBtn">Are you ready?</button>
+      <!-- welcome screen -->
+      <div class="menu">
+        <h1>Welcome to</h1>
+        <h2>Capyquest</h2>
+        <button class="start">Start</button>
+        <button class="options">Options</button>
+        <button class="quit">Quit</button>
+      </div>
+      <!-- options menu -->
+      <div class="optionsScreen">
+        <h1>Options</h1>
+        <div class="musicOption">
+          <h2>Music</h2>
+          0<input type="range" id="volume" />100
+          <br />
+          current volume:
+          <span id="volumeValue">50%</span>
         </div>
-        <!-- options menu -->
-        <div class="optionsScreen">
-          <h1>Options</h1>
-          <div class="musicOption">
-            <h2>Music</h2>
-            0<input type="range" id="volume" />100
-            <br />
-            current volume:
-            <span id="volumeValue">50%</span>
-          </div>
-          <div>
-            <h2>Sound</h2>
-          </div>
-          <div class="voiceOption">
-            <h2>Voice Acting</h2>
-            off
-            <label class="switch">
-              <input id="checker" type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-            on
-          </div>
-          <div class="optionMenu">
-            <button class="optionBtns">Save</button>
-            <button class="optionBtns back">Back</button>
-          </div>
+        <div>
+          <h2>Sound</h2>
         </div>
-        <!-- game screen -->
-        <div></div>
+        <div class="voiceOption">
+          <h2>Voice Acting</h2>
+          off
+          <label class="switch">
+            <input id="checker" type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+          on
+        </div>
+        <div class="optionMenu">
+          <button class="optionBtns">Save</button>
+          <button class="optionBtns back">Back</button>
+        </div>
+      </div>
+      <!-- game screen -->
+      <div class="intro">
+        <p>
+          Hey...
+          <br />
+          Hey you there are you awake?
+          <br />
+          I didn't mean to intrude this weather is just horrid....
+          <br />
+          can you tell me your name?
+        </p>
+        <div class="name">
+          <input type="text" id="name" />
+          <br />
+          <button class="nameBtn">Submit name</button>
+        </div>
+      </div>
+      <div class="intro2">
+        <p>
+          Oh, I'm sorry I forgot you're a animal you can't speak.
+          <br />
+          Well let me name you then......
+          <br />
+          Hmm I think I'll call you <span id="playerName"></span>
+        </p>
+        <span>You give a happy chirp</span>
+        <p>
+          Oh my I totally forgot to introduce myself.
+          <br />
+          My name is Amanda NotMainCharacter!
+          <br />
+          I know a very weird last name.... I am European!
+          <br />
+          During my time walking here I found these strange looking hats. Would
+          you like to try one on?
+        </p>
+        <button id="chooseClass">Yes</button>
+        <button id="noClass">no</button>
+      </div>
+      <div class="declineOffer">
+        <p>HOW DARE YOU REFUSE MY OFFER!</p>
+        <button id="death">You messed up :)</button>
+      </div>
+      <div class="amandaDeath">
+        <p>Amanda gets out a spell book and reduces you to ashes</p>
+        <p>You should have just chosen to get a hat /shrug</p>
+      </div>
+      <!-- class select -->
+      <div class="classSelect">
+        <h1>Choose your class!</h1>
+        <article>
+          <section>
+            <h2>Mage</h2>
+            <img src="./images/mage.png" alt="Capybara with mage hat" />
+          </section>
+          <section>
+            <h2>Rogue</h2>
+            <img src="./images/rogue.png" alt="Capybara with rogue hat" />
+          </section>
+          <section>
+            <h2>Warrior</h2>
+            <img src="./images/warrior.png" alt="Capybara with warrior hat" />
+          </section>
+        </article>
       </div>
     </main>
   </body>

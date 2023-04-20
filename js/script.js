@@ -10,9 +10,50 @@ document.querySelector(".launchBtn").addEventListener("click", function () {
   document.querySelector(".menu").style.display = "block";
 });
 
+///////////////////////////////////
+/////////////////////
 // start game
-document.querySelector(".start").addEventListener("click", function () {});
+/////////////////////
+///////////////////////////////////
+document.querySelector(".start").addEventListener("click", function () {
+  document.querySelector(".menu").style.display = "none";
+  document.querySelector(".intro").style.display = "block";
+  document.querySelector(".name").style.display = "block";
+});
+
+var playerName = ''; 
+document.querySelector(".nameBtn").addEventListener("click", function () {
+  if (document.querySelector("#name").value == '') {
+    alert("Please enter a name!");
+  }else{
+    playerName = document.querySelector("#name").value;
+    document.querySelector("#playerName").innerHTML = playerName;
+    document.querySelector(".intro").style.display = "none";
+    document.querySelector(".intro2").style.display = "block";
+  }
+});
+
+document.querySelector("#chooseClass").addEventListener("click", function () {
+  document.querySelector(".intro2").style.display = "none";
+  document.querySelector(".classSelect").style.display = "block";
+});
+
+document.querySelector("#noClass").addEventListener("click", function () {
+  document.querySelector(".intro2").style.display = "none";
+  document.querySelector(".declineOffer").style.display = "block";
+});
+
+document.querySelector("#death").addEventListener("click", function () {
+  document.querySelector(".declineOffer").style.display = "none";
+  document.querySelector(".amandaDeath").style.display = "block";
+});
+
+
+///////////////////////////////////
+/////////////////////
 // options menus
+/////////////////////
+///////////////////////////////////
 document.querySelector(".options").addEventListener("click", function () {
   document.querySelector(".menu").style.display = "none";
   document.querySelector(".optionsScreen").style.display = "block";
@@ -42,4 +83,11 @@ document.querySelector(".back").addEventListener("click", function () {
   document.querySelector(".menu").style.display = "block";
 });
 
-document.querySelector(".quit").addEventListener("click", function () {});
+///////////////////////////////////
+/////////////////////
+// quit game
+/////////////////////
+///////////////////////////////////
+document.querySelector(".quit").addEventListener("click", function () {
+  window.close();
+});

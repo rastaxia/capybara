@@ -17,6 +17,8 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  line-height: 2em;
+  font-size: 24px;
 }
 
 button {
@@ -33,7 +35,6 @@ button {
 
 h1 {
   font-size: 72px;
-  margin: 0;
   padding: 0;
 }
 
@@ -42,12 +43,15 @@ button:hover {
   color: #222222;
 }
 
-.menu {
+div {
   display: none;
 }
 
+.launchButton {
+  display: block;
+}
+
 .optionsScreen {
-  display: none;
   padding: 25px;
   border: 1px white solid;
 }
@@ -80,8 +84,6 @@ button:hover {
   font-size: 22px;
   margin: 0 10px;
 }
-
-
 
 /* voice acting switch */
 .switch {
@@ -121,11 +123,11 @@ button:hover {
   transition: 0.4s;
 }
 
-input:checked+.slider {
+input:checked + .slider {
   background-color: green;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   -webkit-transform: translateX(36px);
   -ms-transform: translateX(36px);
   transform: translateX(36px);
@@ -138,4 +140,13 @@ input:checked+.slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* ///////////// */
+/* ///// */
+/* Intro screen */
+/* ///// */
+/* ///////////// */
+.classSelect article {
+  display: flex;
 }
