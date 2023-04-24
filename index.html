@@ -10,6 +10,14 @@
   </head>
   <body>
     <main>
+      <iframe
+        src="https://giphy.com/embed/1ccd9l2mnpOQz96MZM"
+        width="480"
+        height="384"
+        frameborder="0"
+        class="giphy-embed"
+        allowfullscreen
+      ></iframe>
       <button class="launchBtn">Are you ready?</button>
       <!-- welcome screen -->
       <div class="menu">
@@ -22,17 +30,17 @@
       <!-- options menu -->
       <div class="optionsScreen">
         <h1>Options</h1>
-        <div class="musicOption">
+        <article class="musicOption">
           <h2>Music</h2>
           0<input type="range" id="volume" />100
           <br />
           current volume:
           <span id="volumeValue">50%</span>
-        </div>
-        <div>
+        </article>
+        <article>
           <h2>Sound</h2>
-        </div>
-        <div class="voiceOption">
+        </article>
+        <article class="voiceOption">
           <h2>Voice Acting</h2>
           off
           <label class="switch">
@@ -40,11 +48,11 @@
             <span class="slider round"></span>
           </label>
           on
-        </div>
-        <div class="optionMenu">
+        </article>
+        <article class="optionMenu">
           <button class="optionBtns">Save</button>
           <button class="optionBtns back">Back</button>
-        </div>
+        </article>
       </div>
       <!-- game screen -->
       <div class="intro">
@@ -57,11 +65,12 @@
           <br />
           can you tell me your name?
         </p>
-        <div class="name">
+        <article class="name">
+          <label for="name">Name:</label>
           <input type="text" id="name" />
           <br />
           <button class="nameBtn">Submit name</button>
-        </div>
+        </article>
       </div>
       <div class="intro2">
         <p>
@@ -97,19 +106,40 @@
       <div class="classSelect">
         <h1>Choose your class!</h1>
         <article>
-          <section>
+          <section class="classes" id="mage">
             <h2>Mage</h2>
             <img src="./images/mage.png" alt="Capybara with mage hat" />
           </section>
-          <section>
+          <section class="classes" id="rogue">
             <h2>Rogue</h2>
             <img src="./images/rogue.png" alt="Capybara with rogue hat" />
           </section>
-          <section>
+          <section class="classes" id="warrior">
             <h2>Warrior</h2>
             <img src="./images/warrior.png" alt="Capybara with warrior hat" />
           </section>
         </article>
+      </div>
+      <!-- after class select -->
+      <div class="afterClass">
+        <p>
+          Wow it looks so great on you! I'm so glad you chose to wear one.
+          <br />
+          I'm not sure but you aura has changed.
+        </p>
+        <p>You look at Amanda confused</p>
+        <p>
+          Oh you must be wondering how I know that.
+          <br />
+          Let me introduce myself properly.
+          <br />
+          I am Amanda NotMainCharacter and I am a witch. I have been studying
+          the purest form of magic for years. thats why I came to this land.
+          <br />
+          But......
+        </p>
+        <p>Before Amanda could finish her sentence a loud noise was heard</p>
+        <button class="caveAmbush">Continue</button>
       </div>
     </main>
   </body>

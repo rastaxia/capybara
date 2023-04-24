@@ -18,7 +18,6 @@ document.querySelector(".launchBtn").addEventListener("click", function () {
 document.querySelector(".start").addEventListener("click", function () {
   document.querySelector(".menu").style.display = "none";
   document.querySelector(".intro").style.display = "block";
-  document.querySelector(".name").style.display = "block";
 });
 
 var playerName = ''; 
@@ -48,6 +47,31 @@ document.querySelector("#death").addEventListener("click", function () {
   document.querySelector(".amandaDeath").style.display = "block";
 });
 
+// classes 
+var classChoice = '';
+var level = 1;
+document.querySelectorAll(".classes").forEach((item) => {
+  item.addEventListener("click", function () {
+    classChoice = item.id;
+    if(confirm("are you sure you want to be a " + classChoice + "?")){
+      document.querySelector(".classSelect").style.display = "none";
+      document.querySelector(".afterClass").style.display = "block";
+    }
+  });
+});
+
+///////////////////////////////////
+/////////////////////
+// combat
+/////////////////////
+///////////////////////////////////
+fetch("../json/monsters.json")
+  .then((response) => response.json())
+  .then((data) => {
+    random = Math.floor(Math.random() * data.levelOne.length);
+    console.log(data.levelOne[random]);
+
+  });
 
 ///////////////////////////////////
 /////////////////////
@@ -89,5 +113,9 @@ document.querySelector(".back").addEventListener("click", function () {
 /////////////////////
 ///////////////////////////////////
 document.querySelector(".quit").addEventListener("click", function () {
-  window.close();
+  if (confirm("Are you sure you want to quit?")) {
+    document.querySelector(".menu").style.display = "none";
+    document.querySelector(".giphy-embed").style.display = "block";
+  }
 });
+

@@ -1,0 +1,38 @@
+{
+  "levelOne": [
+    {
+      "name": "Power Slash",
+      "attack": 25,
+      "usage": 2
+    }
+  ],
+  "levelTwo": [
+    {
+      "name": "Smash",
+      "attack": 50,
+      "usage": 1
+    },
+    {
+      "name": "High powered Bite",
+      "attack": 40,
+      "usage": 3
+    }
+  ],
+    "levelThree": [
+        {
+        "name": "Gods wrath",
+        "attack": 120,
+        "usage": 1
+        },
+        {
+        "name": "Roll out",
+        "attack": 70,
+        "usage": 5
+        },
+        {
+        "name": "Tackle",
+        "attack": 50,
+        "usage": 10
+        }
+    ]
+}

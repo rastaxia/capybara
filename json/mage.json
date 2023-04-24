@@ -1,0 +1,43 @@
+{
+    "levelOne":
+    [
+        {
+            "name": "Fireball",
+            "attack": 30,
+            "usage": 1
+        }
+    ],
+    "levelTwo":
+    [
+        {
+            "name": "Arcane Blast",
+            "attack": 50,
+            "usage": 5
+        },
+        {
+            "name": "Magic arrow",
+            "attack": 60,
+            "usage": 5
+        }
+    ],
+    "levelThree":
+    [
+        {
+            "name": "Conjure Sniper",
+            "attack": 200,
+            "usage": 1
+        },
+        {
+            "name": "Ice Blast",
+            "attack": 100,
+            "usage": 3
+        },
+        {
+            "name": "Hell flame",
+            "attack": 100,
+            "usage": 3
+        }
+        
+    ]
+    
+}

@@ -1,0 +1,38 @@
+{
+  "levelOne": [
+    {
+      "name": "Shadow Pierce",
+      "attack": 40,
+      "usage": 3
+    }
+  ],
+  "levelTwo": [
+    {
+      "name": "Assassinate",
+      "attack": 70,
+      "usage": 2
+    },
+    {
+      "name": "Shadow Strike",
+      "attack": 60,
+      "usage": 4
+    }
+  ],
+  "levelThree": [
+    {
+      "name": "Shadow Slash",
+      "attack": 120,
+      "usage": 5
+    },
+    {
+      "name": "Piercing mist",
+      "attack": 100,
+      "usage": 5
+    },
+    {
+      "name": "Beyond the grave",
+      "attack": 150,
+      "usage": 1
+    }
+  ]
+}

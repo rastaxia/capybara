@@ -45,11 +45,23 @@ button:hover {
 
 div {
   display: none;
+  border: 1px solid white;
+  padding: 25px;
 }
 
 .launchButton {
   display: block;
 }
+
+.giphy-embed {
+  display: none;
+}
+
+/* ///////////// */
+/* ///// */
+/* options menu */
+/* ///// */
+/* ///////////// */
 
 .optionsScreen {
   padding: 25px;
@@ -147,6 +159,26 @@ input:checked + .slider:before {
 /* Intro screen */
 /* ///// */
 /* ///////////// */
+
+.intro {
+  padding: 0 30px 30px 30px;
+  border: 1px solid white;
+}
+
 .classSelect article {
   display: flex;
+}
+
+.classes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0);
+  transition: all 0.3s ease;
+}
+
+.classes:hover {
+  cursor: pointer;
+  transform: scale(0.9);
+  border: 1px solid rgb(197, 182, 182);
 }
