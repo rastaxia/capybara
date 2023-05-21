@@ -20,11 +20,11 @@ document.querySelector(".start").addEventListener("click", function () {
   document.querySelector(".intro").style.display = "block";
 });
 
-var playerName = ''; 
+var playerName = "";
 document.querySelector(".nameBtn").addEventListener("click", function () {
-  if (document.querySelector("#name").value == '') {
+  if (document.querySelector("#name").value == "") {
     alert("Please enter a name!");
-  }else{
+  } else {
     playerName = document.querySelector("#name").value;
     document.querySelector("#playerName").innerHTML = playerName;
     document.querySelector(".intro").style.display = "none";
@@ -47,31 +47,121 @@ document.querySelector("#death").addEventListener("click", function () {
   document.querySelector(".amandaDeath").style.display = "block";
 });
 
-// classes 
-var classChoice = '';
+// classes
+var classChoice = "";
 var level = 1;
 document.querySelectorAll(".classes").forEach((item) => {
   item.addEventListener("click", function () {
-    classChoice = item.id;
-    if(confirm("are you sure you want to be a " + classChoice + "?")){
+    if (confirm("are you sure you want to be a " + classChoice + "?")) {
+      classChoice = item.id;
       document.querySelector(".classSelect").style.display = "none";
       document.querySelector(".afterClass").style.display = "block";
     }
   });
 });
 
+document.querySelector(".caveAmbush").addEventListener("click", function () {
+  document.querySelector(".afterClass").style.display = "none";
+  document.querySelector(".playerChoice").style.display = "flex";
+});
+
+const first = document.createElement("button");
+first.innerHTML = "Fight";
+first.addEventListener("click", function () {
+  combat();
+  document.querySelector(".playerChoice").style.display = "none";
+  document.querySelector(".combat").style.display = "grid";
+});
+const second = document.createElement("button");
+second.innerHTML = "Run";
+second.addEventListener("click", function () {
+  alert("You're in a cave, where are you going to run to?");
+});
+const third = document.createElement("button");
+third.innerHTML = "Look at Amanda";
+third.addEventListener("click", function () {
+  alert("Amanda looks back at you, she's not happy");
+});
+document.querySelector(".playerChoice").appendChild(first);
+document.querySelector(".playerChoice").appendChild(second);
+document.querySelector(".playerChoice").appendChild(third);
+
 ///////////////////////////////////
 /////////////////////
 // combat
 /////////////////////
 ///////////////////////////////////
-fetch("../json/monsters.json")
-  .then((response) => response.json())
-  .then((data) => {
-    random = Math.floor(Math.random() * data.levelOne.length);
-    console.log(data.levelOne[random]);
+function combat() {
+  const enemyImg = document.querySelector("#enemy");
+  const enemyHp = document.querySelector("#enemyHealth");
+  const enemyName = document.querySelector("#enemyName");
+  var hp = 100;
+  var remainingHp = hp;
 
-  });
+  switch (level) {
+    case 1:
+      // level one combat
+      // Enemy
+      fetch("../json/monsters.json")
+        .then((response) => response.json())
+        .then((monster) => {
+          random = Math.floor(Math.random() * monster.levelOne.length);
+          enemyImg.src = monster.levelOne[random].img;
+          enemyHp.innerHTML = monster.levelOne[random].hp;
+          enemyName.innerHTML = monster.levelOne[random].name;
+        });
+      // Player
+      fetch("../json/" + classChoice + ".json")
+        .then((response) => response.json())
+        .then((player) => {
+          player.levelOne.forEach((item) => {
+            console.log(item);
+            var usage = item.usage;
+            var remainingUsage = usage;
+          });
+        });
+      break;
+    case 2:
+      // level two combat
+      // Enemy
+      fetch("../json/monsters.json")
+        .then((response) => response.json())
+        .then((data) => {
+          random = Math.floor(Math.random() * data.levelTwo.length);
+          enemyImg.src = data.levelTwo[random].img;
+          enemyHp.innerHTML = data.levelTwo[random].hp;
+          enemyName.innerHTML = data.levelTwo[random].name;
+        });
+      // Player
+      fetch("../json/" + classChoice + ".json")
+        .then((response) => response.json())
+        .then((player) => {
+          player.levelTwo.forEach((item) => {
+            console.log(item);
+          });
+        });
+      break;
+    case 3:
+      // level three combat
+      // Enemy
+      fetch("../json/monsters.json")
+        .then((response) => response.json())
+        .then((data) => {
+          random = Math.floor(Math.random() * data.levelThree.length);
+          enemyImg.src = data.levelThree[random].img;
+          enemyHp.innerHTML = data.levelThree[random].hp;
+          enemyName.innerHTML = data.levelThree[random].name;
+        });
+      // Player
+      fetch("../json/" + classChoice + ".json")
+        .then((response) => response.json())
+        .then((player) => {
+          player.levelThree.forEach((item) => {
+            console.log(item);
+          });
+        });
+  }
+}
 
 ///////////////////////////////////
 /////////////////////
@@ -118,4 +208,3 @@ document.querySelector(".quit").addEventListener("click", function () {
     document.querySelector(".giphy-embed").style.display = "block";
   }
 });
-
