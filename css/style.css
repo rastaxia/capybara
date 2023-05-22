@@ -135,11 +135,11 @@ div {
   transition: 0.4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: green;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(36px);
   -ms-transform: translateX(36px);
   transform: translateX(36px);
@@ -194,4 +194,50 @@ input:checked + .slider:before {
 /* ///////////////// */
 .combat {
   grid-template-columns: 1fr 1fr;
+}
+
+/* ///////////////// */
+/* ///// */
+/* map screen */
+/* ///// */
+/* ///////////////// */
+#map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+}
+
+.room {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: white;
+  text-align: center;
+  line-height: 80px;
+  font-size: 16px;
+
+}
+
+.room-clickable {
+  background-color: #5d5d5d !important;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 10px #000;
+}
+
+.room-clickable:hover {
+  background-color: #424242 !important;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 10px #433d3d;
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

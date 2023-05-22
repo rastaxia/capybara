@@ -96,6 +96,7 @@ function combat() {
   const enemyHp = document.querySelector("#enemyHealth");
   const enemyName = document.querySelector("#enemyName");
   var hp = 100;
+
   var remainingHp = hp;
 
   switch (level) {
@@ -189,6 +190,12 @@ document.querySelector(".options").addEventListener("click", function () {
       };
     }
   });
+});
+
+document.querySelector(".save").addEventListener("click", function () {
+  document.querySelector(".optionsScreen").style.display = "none";
+  document.querySelector(".menu").style.display = "block";
+  alert("Options saved");
 });
 
 // back to menu
