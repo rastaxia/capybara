@@ -18,21 +18,21 @@
       "usage": 3
     }
   ],
-    "levelThree": [
-        {
-        "name": "Gods wrath",
-        "attack": 120,
-        "usage": 1
-        },
-        {
-        "name": "Roll out",
-        "attack": 70,
-        "usage": 5
-        },
-        {
-        "name": "Tackle",
-        "attack": 50,
-        "usage": 10
-        }
-    ]
+  "levelThree": [
+    {
+      "name": "Gods wrath",
+      "attack": 120,
+      "usage": 1
+    },
+    {
+      "name": "Roll out",
+      "attack": 70,
+      "usage": 5
+    },
+    {
+      "name": "Tackle",
+      "attack": 50,
+      "usage": 10
+    }
+  ]
 }

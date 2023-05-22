@@ -135,11 +135,11 @@ div {
   transition: 0.4s;
 }
 
-input:checked+.slider {
+input:checked + .slider {
   background-color: green;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   -webkit-transform: translateX(36px);
   -ms-transform: translateX(36px);
   transform: translateX(36px);
@@ -196,6 +196,16 @@ input:checked+.slider:before {
   grid-template-columns: 1fr 1fr;
 }
 
+.attackOverlay {
+  display: block;
+  position: fixed;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0);
+  padding: 20px;
+  box-sizing: border-box;
+  max-width: 300px;
+  color: #fff;
+}
 /* ///////////////// */
 /* ///// */
 /* map screen */
@@ -219,7 +229,6 @@ input:checked+.slider:before {
   text-align: center;
   line-height: 80px;
   font-size: 16px;
-
 }
 
 .room-clickable {

@@ -52,8 +52,8 @@ var classChoice = "";
 var level = 1;
 document.querySelectorAll(".classes").forEach((item) => {
   item.addEventListener("click", function () {
+    classChoice = item.id;
     if (confirm("are you sure you want to be a " + classChoice + "?")) {
-      classChoice = item.id;
       document.querySelector(".classSelect").style.display = "none";
       document.querySelector(".afterClass").style.display = "block";
     }
@@ -95,12 +95,15 @@ function combat() {
   const enemyImg = document.querySelector("#enemy");
   const enemyHp = document.querySelector("#enemyHealth");
   const enemyName = document.querySelector("#enemyName");
-  var hp = 100;
+  const playerHp = document.querySelector("#playerHealth");
 
-  var remainingHp = hp;
+  var hp = null;
+
+  const spellList = [];
 
   switch (level) {
     case 1:
+      hp = 100;
       // level one combat
       // Enemy
       fetch("../json/monsters.json")
@@ -116,13 +119,15 @@ function combat() {
         .then((response) => response.json())
         .then((player) => {
           player.levelOne.forEach((item) => {
-            console.log(item);
+            spellList.push(item);
+            // TO DO - add spell usage
             var usage = item.usage;
             var remainingUsage = usage;
           });
         });
       break;
     case 2:
+      hp = 150;
       // level two combat
       // Enemy
       fetch("../json/monsters.json")
@@ -138,11 +143,12 @@ function combat() {
         .then((response) => response.json())
         .then((player) => {
           player.levelTwo.forEach((item) => {
-            console.log(item);
+            spellList.push(item);
           });
         });
       break;
     case 3:
+      hp = 200;
       // level three combat
       // Enemy
       fetch("../json/monsters.json")
@@ -158,10 +164,39 @@ function combat() {
         .then((response) => response.json())
         .then((player) => {
           player.levelThree.forEach((item) => {
-            console.log(item);
+            spellList.push(item);
           });
         });
   }
+  var remainingHp = hp;
+  playerHp.innerHTML = remainingHp;
+
+  //attack
+  const combatOptions = document.querySelector(".combatOptions");
+  // Get the button element
+  const attackBtn = document.querySelector("#attack");
+
+  // Add click event listener to the button
+  attackBtn.addEventListener("click", function () {
+    // Create the overlay element
+    const attackOverlay = document.createElement("div");
+    attackOverlay.classList.add("attackOverlay");
+
+    // Set overlay content
+    spellList.forEach((element) => {});
+
+    // Position the overlay above the clicked button
+    const buttonRect = attackBtn.getBoundingClientRect();
+    attackOverlay.style.top = buttonRect.bottom - 265 + "px";
+    attackOverlay.style.left = buttonRect.left + "px";
+
+    // Add click event listener to the close button
+    const closeButton = attackOverlay.querySelector("#closeButton");
+    closeButton.addEventListener("click", function () {
+      // Remove the overlay
+      attackOverlay.remove();
+    });
+  });
 }
 
 ///////////////////////////////////
