@@ -1,15 +1,16 @@
 document.querySelector("#advYes").addEventListener("click", function () {
+  alert("This the end of the tutorial. You can now play the game.");
   document.querySelector(".postCombat1").style.display = "none";
   document.querySelector("#map").style.display = "block";
   const mapData = [
-    { id: 1, x: 100, y: 75, clickable: true },
-    { id: 2, x: 250, y: 25, clickable: false },
-    { id: 3, x: 250, y: 125, clickable: false },
-    { id: 4, x: 550, y: 25, clickable: false },
-    { id: 5, x: 550, y: 125, clickable: false },
-    { id: 6, x: 750, y: 0, clickable: false },
-    { id: 7, x: 750, y: 100, clickable: false },
-    { id: 8, x: 750, y: 200, clickable: false },
+    { id: 1, x: 100, y: 100, clickable: true, info: "Mountain" },
+    { id: 2, x: 250, y: 25, clickable: false, info: "Mountain" },
+    { id: 3, x: 250, y: 150, clickable: false, info: "Mountain" },
+    { id: 4, x: 550, y: 45, clickable: false, info: "Mountain" },
+    { id: 5, x: 550, y: 185, clickable: false, info: "Mountain" },
+    { id: 6, x: 750, y: 30, clickable: false, info: "Mountain" },
+    { id: 7, x: 750, y: 210, clickable: false, info: "Mountain" },
+    { id: 8, x: 750, y: 300, clickable: false, info: "Mountain" },
   ];
 
   const mapConnections = [
@@ -48,6 +49,12 @@ document.querySelector("#advYes").addEventListener("click", function () {
       }
 
       room.classList.add("room-clicked");
+      switch (roomData.id) {
+        case 1:
+          document.querySelector("#map").style.display = "none";
+          console.log("1");
+          break;
+      }
 
       const connectedRooms =
         mapConnections.find((c) => c.from === roomData.id)?.to || [];
@@ -82,14 +89,10 @@ document.querySelector("#advYes").addEventListener("click", function () {
       : null;
 
     if (fromRoomRect && toRoomRect) {
-      const fromRoomCenterX = fromRoomRect.left + fromRoomRect.width;
-      console.log(fromRoomCenterX);
-      const fromRoomCenterY = fromRoomRect.top + fromRoomRect.height;
-      console.log(fromRoomCenterY);
-      const toRoomCenterX = toRoomRect.left + toRoomRect.width;
-      console.log(toRoomCenterX);
-      const toRoomCenterY = toRoomRect.top + toRoomRect.height;
-      console.log(toRoomCenterY);
+      const fromRoomCenterX = fromRoomRect.left + fromRoomRect.width / 2;
+      const fromRoomCenterY = fromRoomRect.top + fromRoomRect.height / 2;
+      const toRoomCenterX = toRoomRect.left + toRoomRect.width / 2;
+      const toRoomCenterY = toRoomRect.top + toRoomRect.height / 2;
 
       const line = document.createElementNS(
         "http://www.w3.org/2000/svg",
