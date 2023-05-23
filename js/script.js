@@ -210,8 +210,10 @@ function combat() {
         if (enemyHp.innerHTML <= 0) {
           alert("You win!");
           enemyHp.innerHTML = 0;
+          document.querySelector(".combat").style.display = "none";
+          document.querySelector(".postCombat1").style.display = "block";
         } else {
-          setTimeout(enemyAttack, 500);
+          setTimeout(enemyAttack, 300);
         }
       });
       attackOverlay.appendChild(spell);
@@ -291,6 +293,7 @@ document.querySelector(".options").addEventListener("click", function () {
   });
 });
 
+// save options
 document.querySelector(".save").addEventListener("click", function () {
   document.querySelector(".optionsScreen").style.display = "none";
   document.querySelector(".menu").style.display = "block";
