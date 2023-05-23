@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.querySelector("#advYes").addEventListener("click", function () {
+  document.querySelector(".postCombat1").style.display = "none";
   const mapData = [
     { id: 1, x: 100, y: 75, clickable: true },
     { id: 2, x: 250, y: 25, clickable: false },
@@ -20,13 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const map = document.getElementById("map");
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute("width", "800");
-  svg.setAttribute("height", "400");
+  svg.setAttribute("width", "100%");
+  svg.setAttribute("height", "100%");
 
   const rooms = [];
 
   const createRoom = (roomData) => {
-    const room = document.createElement("div");
+    const room = document.createElement("span");
+    room.style.display = "inline-block";
     room.classList.add("room");
     room.style.left = `${roomData.x}px`;
     room.style.top = `${roomData.y}px`;
@@ -79,10 +81,14 @@ document.addEventListener("DOMContentLoaded", () => {
       : null;
 
     if (fromRoomRect && toRoomRect) {
-      const fromRoomCenterX = fromRoomRect.left + fromRoomRect.width / 2;
-      const fromRoomCenterY = fromRoomRect.top + fromRoomRect.height / 2;
-      const toRoomCenterX = toRoomRect.left + toRoomRect.width / 2;
-      const toRoomCenterY = toRoomRect.top + toRoomRect.height / 2;
+      const fromRoomCenterX = fromRoomRect.left + fromRoomRect.width;
+      console.log(fromRoomCenterX);
+      const fromRoomCenterY = fromRoomRect.top + fromRoomRect.height;
+      console.log(fromRoomCenterY);
+      const toRoomCenterX = toRoomRect.left + toRoomRect.width;
+      console.log(toRoomCenterX);
+      const toRoomCenterY = toRoomRect.top + toRoomRect.height;
+      console.log(toRoomCenterY);
 
       const line = document.createElementNS(
         "http://www.w3.org/2000/svg",
@@ -92,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
       line.setAttribute("y1", fromRoomCenterY);
       line.setAttribute("x2", toRoomCenterX);
       line.setAttribute("y2", toRoomCenterY);
-      line.setAttribute("stroke", "#888");
+      line.setAttribute("stroke", "white");
       line.setAttribute("stroke-dasharray", "4");
 
       svg.appendChild(line);
