@@ -68,9 +68,9 @@ document.querySelector(".caveAmbush").addEventListener("click", function () {
 const first = document.createElement("button");
 first.innerHTML = "Fight";
 first.addEventListener("click", function () {
-  combat();
   document.querySelector(".playerChoice").style.display = "none";
   document.querySelector(".combat").style.display = "grid";
+  combat();
 });
 const second = document.createElement("button");
 second.innerHTML = "Run";
@@ -91,18 +91,30 @@ document.querySelector(".playerChoice").appendChild(third);
 // combat
 /////////////////////
 ///////////////////////////////////
+// sets the player hp
+var remainingHp = null;
+// sets the enemy dmg
+var monsterAttack = null;
+// the actual hp variable
+const playerHp = document.querySelector("#playerHealth");
+
 function combat() {
   const enemyImg = document.querySelector("#enemy");
   const enemyHp = document.querySelector("#enemyHealth");
   const enemyName = document.querySelector("#enemyName");
-  const playerHp = document.querySelector("#playerHealth");
 
+  //play health
   var hp = null;
 
+  // turn based 1 is player 2 is enemy
+  var turn = 1;
+
+  // where all the spells are stored
   const spellList = [];
 
   switch (level) {
     case 1:
+      // sets player hp for lvl 1
       hp = 100;
       // level one combat
       // Enemy
@@ -113,6 +125,7 @@ function combat() {
           enemyImg.src = monster.levelOne[random].img;
           enemyHp.innerHTML = monster.levelOne[random].hp;
           enemyName.innerHTML = monster.levelOne[random].name;
+          monsterAttack = monster.levelOne[random].attack;
         });
       // Player
       fetch("../json/" + classChoice + ".json")
@@ -127,6 +140,7 @@ function combat() {
         });
       break;
     case 2:
+      // sets player hp for lvl 2
       hp = 150;
       // level two combat
       // Enemy
@@ -148,6 +162,7 @@ function combat() {
         });
       break;
     case 3:
+      // sets player hp for lvl 3
       hp = 200;
       // level three combat
       // Enemy
@@ -168,11 +183,13 @@ function combat() {
           });
         });
   }
-  var remainingHp = hp;
+  // remainingHp after combat
+  remainingHp = hp;
+  // gives the player the correct amount of hp
   playerHp.innerHTML = remainingHp;
 
-  //attack
-  const combatOptions = document.querySelector(".combatOptions");
+  console.log("player turn");
+  // attack code
   // Get the button element
   const attackBtn = document.querySelector("#attack");
 
@@ -183,20 +200,67 @@ function combat() {
     attackOverlay.classList.add("attackOverlay");
 
     // Set overlay content
-    spellList.forEach((element) => {});
+    spellList.forEach((element) => {
+      const spell = document.createElement("button");
+      spell.innerHTML = element.name;
+      spell.addEventListener("click", function () {
+        var damage = element.attack;
+        enemyHp.innerHTML = enemyHp.innerHTML - damage;
+        attackOverlay.remove();
+        if (enemyHp.innerHTML <= 0) {
+          alert("You win!");
+          enemyHp.innerHTML = 0;
+        } else {
+          setTimeout(enemyAttack, 500);
+        }
+      });
+      attackOverlay.appendChild(spell);
+    });
 
     // Position the overlay above the clicked button
     const buttonRect = attackBtn.getBoundingClientRect();
     attackOverlay.style.top = buttonRect.bottom - 265 + "px";
     attackOverlay.style.left = buttonRect.left + "px";
 
-    // Add click event listener to the close button
-    const closeButton = attackOverlay.querySelector("#closeButton");
+    // Append the overlay to the body
+    document.body.appendChild(attackOverlay);
+
+    // Add close button
+    const closeButton = document.createElement("button");
+    closeButton.innerHTML = "Close";
     closeButton.addEventListener("click", function () {
-      // Remove the overlay
       attackOverlay.remove();
     });
+    attackOverlay.appendChild(closeButton);
   });
+
+  // healing
+  document.querySelector("#special").addEventListener("click", function () {
+    if (remainingHp < hp) {
+      alert("You are already at full health");
+    } else {
+      setTimeout(enemyAttack, 500);
+      remainingHp = remainingHp + 20;
+      if (remainingHp > hp) {
+        remainingHp = hp;
+        playerHp.innerHTML = remainingHp;
+      }
+    }
+  });
+
+  //  fleeing
+  document.querySelector("#flee").addEventListener("click", function () {
+    alert("I am not a merciful god, you cannot flee from combat in this game");
+    setTimeout(enemyAttack, 500);
+  });
+}
+
+function enemyAttack() {
+  console.log("enemy turn");
+  // enemy attack
+  remainingHp = remainingHp - monsterAttack;
+  alert("The enemy attacks you for " + monsterAttack + " damage");
+  playerHp.innerHTML = remainingHp;
 }
 
 ///////////////////////////////////
