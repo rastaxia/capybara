@@ -1,5 +1,6 @@
 document.querySelector("#advYes").addEventListener("click", function () {
   document.querySelector(".postCombat1").style.display = "none";
+  document.querySelector("#map").style.display = "block";
   const mapData = [
     { id: 1, x: 100, y: 75, clickable: true },
     { id: 2, x: 250, y: 25, clickable: false },
