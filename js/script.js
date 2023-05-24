@@ -187,8 +187,6 @@ function combat() {
   remainingHp = hp;
   // gives the player the correct amount of hp
   playerHp.innerHTML = remainingHp;
-
-  console.log("player turn");
   // attack code
   // Get the button element
   const attackBtn = document.querySelector("#attack");
@@ -258,7 +256,6 @@ function combat() {
 }
 
 function enemyAttack() {
-  console.log("enemy turn");
   // enemy attack
   remainingHp = remainingHp - monsterAttack;
   alert("The enemy attacks you for " + monsterAttack + " damage");

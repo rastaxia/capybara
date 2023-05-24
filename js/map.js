@@ -52,7 +52,9 @@ document.querySelector("#advYes").addEventListener("click", function () {
       switch (roomData.id) {
         case 1:
           document.querySelector("#map").style.display = "none";
-          console.log("1");
+          alert(
+            "This is where your adventure would start I just need to work on it"
+          );
           break;
       }
 
