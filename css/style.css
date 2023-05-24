@@ -3,12 +3,17 @@
   src: url(../fonts/moderntale.woff);
 }
 
+@font-face {
+  font-family: testingFont;
+  src: url(../fonts/EightBitDragon-anqx.ttf);
+}
+
 body {
   margin: 0;
   padding: 0;
   background-color: #222222;
   min-height: 100vh;
-  font-family: gameFont;
+  font-family: testingFont;
   color: white;
 }
 
@@ -18,7 +23,7 @@ main {
   justify-content: center;
   align-items: center;
   line-height: 2em;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 button {
@@ -93,7 +98,6 @@ div {
 }
 
 .optionBtns {
-  font-size: 22px;
   margin: 0 10px;
 }
 
@@ -135,11 +139,11 @@ div {
   transition: 0.4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: green;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(36px);
   -ms-transform: translateX(36px);
   transform: translateX(36px);
@@ -183,8 +187,16 @@ input:checked + .slider:before {
   border: 1px solid rgb(197, 182, 182);
 }
 
+.classes img {
+  height: 400px;
+}
+
 .playerChoice {
   flex-direction: column;
+}
+
+.afterClass {
+  max-width: 890px;
 }
 
 /* ///////////////// */
@@ -206,6 +218,23 @@ input:checked + .slider:before {
   max-width: 300px;
   color: #fff;
 }
+
+#enemy {
+  height: 300px;
+}
+
+#angyCap {
+  height: 300px;
+}
+
+.healthBar {
+  font-size: 36px;
+}
+
+.combatOptions button {
+  font-size: 24px;
+}
+
 /* ///////////////// */
 /* ///// */
 /* map screen */

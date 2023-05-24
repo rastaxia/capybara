@@ -4,19 +4,19 @@
             "name":"Zombie",
             "hp":75,
             "attack":20,
-            "img":"../images/zombie1.png"
+            "img":"./images/zombie1.png"
         }   , 
         {
             "name":"Skeleton",
             "hp":50,
             "attack":10,
-            "img":"../images/skeleton1.png"
+            "img":"./images/skeleton1.png"
         },
         {
             "name":"Slime",
             "hp":10,
             "attack":100,
-            "img":"../images/slime1.png"
+            "img":"./images/slime1.png"
         }
     ],
     "levelTwo":[
@@ -24,19 +24,19 @@
             "name":"Zombie grunt",
             "hp":150,
             "attack":50,
-            "img":"../images/zombie1.png"
+            "img":"./images/zombie1.png"
         },
         {
             "name":"Slime bouncer",
             "hp":50,
             "attack":150,
-            "img":"../images/slime1.png"
+            "img":"./images/slime1.png"
         },
         {
             "name":"Skeleton warrior",
             "hp":100,
             "attack":40,
-            "img":"../images/skeleton1.png"
+            "img":"./images/skeleton1.png"
         }
     ],
     "levelThree":[
@@ -44,19 +44,19 @@
             "name":"Zombie sprinter",
             "hp":300,
             "attack":75,
-            "img":"../images/zombie1.png"
+            "img":"./images/zombie1.png"
         },
         {
             "name":"Slime prowler",
             "hp":100,
             "attack":200,
-            "img":"../images/slime1.png"
+            "img":"./images/slime1.png"
         },
         {
             "name":"Skeleton knight",
             "hp":200,
             "attack":60,
-            "img":"../images/skeleton1.png"
+            "img":"./images/skeleton1.png"
         }
     ]
 }
