@@ -1,4 +1,4 @@
-const themeMusic = new Audio("../sounds/theme.mp3");
+const themeMusic = new Audio("./sounds/theme.mp3");
 const voiceActing = document.querySelector("#checker");
 const volume = document.querySelector("#volume");
 
@@ -118,7 +118,7 @@ function combat() {
       hp = 100;
       // level one combat
       // Enemy
-      fetch("../json/monsters.json")
+      fetch("./json/monsters.json")
         .then((response) => response.json())
         .then((monster) => {
           random = Math.floor(Math.random() * monster.levelOne.length);
@@ -128,7 +128,7 @@ function combat() {
           monsterAttack = monster.levelOne[random].attack;
         });
       // Player
-      fetch("../json/" + classChoice + ".json")
+      fetch("./json/" + classChoice + ".json")
         .then((response) => response.json())
         .then((player) => {
           player.levelOne.forEach((item) => {
@@ -144,7 +144,7 @@ function combat() {
       hp = 150;
       // level two combat
       // Enemy
-      fetch("../json/monsters.json")
+      fetch("./json/monsters.json")
         .then((response) => response.json())
         .then((data) => {
           random = Math.floor(Math.random() * data.levelTwo.length);
@@ -153,7 +153,7 @@ function combat() {
           enemyName.innerHTML = data.levelTwo[random].name;
         });
       // Player
-      fetch("../json/" + classChoice + ".json")
+      fetch("./json/" + classChoice + ".json")
         .then((response) => response.json())
         .then((player) => {
           player.levelTwo.forEach((item) => {
@@ -166,7 +166,7 @@ function combat() {
       hp = 200;
       // level three combat
       // Enemy
-      fetch("../json/monsters.json")
+      fetch("./json/monsters.json")
         .then((response) => response.json())
         .then((data) => {
           random = Math.floor(Math.random() * data.levelThree.length);
@@ -175,7 +175,7 @@ function combat() {
           enemyName.innerHTML = data.levelThree[random].name;
         });
       // Player
-      fetch("../json/" + classChoice + ".json")
+      fetch("./json/" + classChoice + ".json")
         .then((response) => response.json())
         .then((player) => {
           player.levelThree.forEach((item) => {
@@ -279,7 +279,7 @@ document.querySelector(".options").addEventListener("click", function () {
   // voice acting
   voiceActing.addEventListener("change", function (e) {
     if (e.currentTarget.checked) {
-      const voice = new Audio("../sounds/voiceActing.mp3");
+      const voice = new Audio("./sounds/voiceActing.mp3");
       voice.play();
       themeMusic.pause();
       voice.onended = function () {
